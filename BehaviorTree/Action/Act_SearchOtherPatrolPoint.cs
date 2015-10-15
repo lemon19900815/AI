@@ -4,20 +4,20 @@ using System.Collections.Generic;
 
 namespace BTEngine
 {
-	public class Act_SearchNextDungeonPoint : BTNManager.Precondition
+	public class Act_SearchOtherPatrolPoint : BTNManager.Precondition
 	{
-		public Act_SearchNextDungeonPoint()
+		public Act_SearchOtherPatrolPoint()
 		{
-			int id = (int)ExtraInfo.eActionID.Act_ID_SearchNextDungeonPoint;
+			int id = (int)ExtraInfo.eActionID.Act_ID_SearchOtherPatrolPoint;
 			ExtraInfo.Instance.register(id, this);
 		}
 		
 		public override bool isTrue(InputParameter _input, OutputParameter _output)
 		{
-			Vector3 nextDungeonPoint = new Vector3();
-			if(_input.mSelf.getNextDungeonPoint(out nextDungeonPoint)) {
-				_input.mSelf.curState = AIState.AI_State_MoveTo;
-				//_input.mSelf.movetoTargetPosition = nextDungeonPoint;
+			Vector3 otherPatrolPoint = new Vector3();
+			if(_input.mSelf.getOtherPatrolPoint(out otherPatrolPoint)) {
+				_input.mSelf.movetoTargetPosition = otherPatrolPoint;
+				//_input.mSelf.curState = AIState.AI_State_Patrol;
 				return true;
 			}
 			
@@ -25,3 +25,4 @@ namespace BTEngine
 		}
 	}
 }
+
