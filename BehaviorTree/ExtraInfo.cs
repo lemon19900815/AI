@@ -118,7 +118,6 @@ namespace BTEngine
 
 		private Dictionary<int, BTNManager.Precondition> _dictPreconditions = new Dictionary<int, BTNManager.Precondition>();
 
-
 		public void register(int id, BTNManager.Precondition node)
 		{
 			_dictPreconditions[id] = node;
